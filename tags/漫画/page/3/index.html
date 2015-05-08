@@ -343,12 +343,13 @@
 <script type="text/javascript">
 $(function(){
     $.ajax({
-        type     : "POST",
+        type     : "GET",
         url      : 'http://counterblog.sinaapp.com/index.php',
         dataType : "jsonp",
-        jsonp    : "jsonpCallback",
+        jsonp    : "callback",
+        jsonpCallback: "countHandler",
         success  : function(json) {
-                    $("#counterValue").text(data);
+                    $("#counterValue").text(json.count);
                    },
         error    : function() {
                     $("#counter").html("");
