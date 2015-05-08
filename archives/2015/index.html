@@ -515,11 +515,11 @@
 <script type="text/javascript">
 $(function(){
     $.ajax({
-        type     : "GET",
+        type     : "POST",
         url      : 'http://counterblog.sinaapp.com/index.php',
         dataType : "jsonp",
         jsonp    : "jsonpCallback",
-        success  : function(data) {
+        success  : function(json) {
                     $("#counterValue").text(data);
                    },
         error    : function() {
