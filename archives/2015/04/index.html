@@ -89,11 +89,19 @@
 						<ul>
 						
 							<li>
-								<a href="/"><img src="/img/home.ico" /><!--主页--></a>
+								<a href="/">
+								
+								<img src="/img/home.ico" /><!--主页-->
+								
+								</a>
 							</li>
 				        
 							<li>
-								<a href="/archives"><img src="/img/home.ico" /><!--所有文章--></a>
+								<a href="/archives">
+								
+								<img src="/img/list2.ico" /><!--所有文章-->
+								
+								</a>
 							</li>
 				        
 						</ul>
@@ -275,6 +283,9 @@
       <footer id="footer">
   <div class="outer">
     <div id="footer-info">
+    <font id="counter">
+    本站共到访 <font id="counterValue" style="color:white">?</font> 次
+</font>
     	<div class="footer-left">
     		&copy; 2015 sunrize looks sweet
     	</div>
@@ -284,6 +295,22 @@
     </div>
   </div>
 </footer>
+<script type="text/javascript">
+$(function(){
+    $.ajax({
+        type     : "GET",
+        url      : 'http://counterblog.sinaapp.com',
+        dataType : "jsonp",
+        jsonp    : "jsonpCallback",
+        success  : function(data) {
+                    $("#counterValue").text(data);
+                   },
+        error    : function() {
+                    $("#counter").html("");
+                   }
+    });
+});
+</script>
 
     </div>
     
@@ -326,6 +353,8 @@ MathJax.Hub.Queue(function() {
 </div>
 
 <script src="js/totop.js"></script>
+<script src="/js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
 
   </div>
 </body>
